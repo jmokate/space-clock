@@ -13,35 +13,41 @@
     const dayNum = today.getDate();
     const month = today.getMonth();
 
-    const currentDate = document.getElementById('day-of-week');
-    currentDate.innerText = dayArray[day] + ', ' + monthArray[month] + ' ' + + dayNum;
+    const currentDateEl = document.getElementById('day-of-week');
+    currentDateEl.innerText = dayArray[day] + ', ' + monthArray[month] + ' ' + + dayNum;
 
-    const currentHour = document.getElementById('hours');
-    currentHour.innerText = today.getHours();
+    const currentHourEl = document.getElementById('hours');
+    currentHourEl.innerText = formatHours(today.getHours()); 
 
-    const currentMin = document.getElementById('minutes');
-    currentMin.innerText = today.getMinutes();
+    const currentMinEl = document.getElementById('minutes');
+    currentMinEl.innerText = formatMinutes(today.getMinutes());
 
-    const currentSec = document.getElementById('seconds');
-    currentSec.innerText = today.getSeconds();
+    const currentSecEl = document.getElementById('seconds');
+    currentSecEl.innerText = formatSeconds(today.getSeconds());
+  }
 
-    if (today.getSeconds() < 10) {
-    currentSec.innerText = '0' + today.getSeconds();
+  function formatSeconds(seconds) {
+    if(seconds < 10) {
+      return '0' + seconds;
     }
+      return seconds;
+  }
 
-    if (today.getMinutes() < 10) {
-    currentMin.innerText = '0' + today.getMinutes();
+  function formatMinutes(minutes) {
+    if (minutes < 10) {
+      return '0' + minutes;
     }
+      return minutes;
+  }
 
-    if (today.getHours() < 10) {
-    currentHour.innerText = '0' + today.getHours();
-    }  
-
-  
-}
-updateClock();
-setInterval(updateClock, 1000);
-
+  function formatHours(hours) {
+    if (hours < 10) {
+      return '0' + hours;
+    } 
+      return hours;
+  }
+    updateClock();
+    setInterval(updateClock, 1000);
 })();
 
 
