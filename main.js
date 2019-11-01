@@ -5,15 +5,11 @@ function updateClock() {
   let day = today.getDay();
   let dayNum = today.getDate();
   let month = today.getMonth();
-  let year = today.getFullYear();
+  
 
   let monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December',];
 
   let dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-  let time = today.getHours() + ':' + 
-  today.getMinutes() + ':' + 
-  today.getSeconds();
 
   let currentDate = document.getElementById('day-of-week');
   currentDate.innerText = dayArray[day] + ', ' + monthArray[month] + ' ' + + dayNum;
@@ -38,8 +34,10 @@ function updateClock() {
   if (today.getHours() < 10) {
     currentHour.innerText = '0' + today.getHours();
   }  
-}
 
+  
+}
+updateClock();
 setInterval(updateClock, 1000);
 
 
