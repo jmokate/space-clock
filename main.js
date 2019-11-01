@@ -1,41 +1,48 @@
-const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December',];
-const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-function updateClock() {
 
-  const today = new Date();
+//IIFE
+(function() {
+  const monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December',];
+  const dayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-  const day = today.getDay();
-  const dayNum = today.getDate();
-  const month = today.getMonth();
+  function updateClock() {
 
-  const currentDate = document.getElementById('day-of-week');
-  currentDate.innerText = dayArray[day] + ', ' + monthArray[month] + ' ' + + dayNum;
+    const today = new Date();
 
-  const currentHour = document.getElementById('hours');
-  currentHour.innerText = today.getHours();
+    const day = today.getDay();
+    const dayNum = today.getDate();
+    const month = today.getMonth();
 
-  const currentMin = document.getElementById('minutes');
-  currentMin.innerText = today.getMinutes();
+    const currentDate = document.getElementById('day-of-week');
+    currentDate.innerText = dayArray[day] + ', ' + monthArray[month] + ' ' + + dayNum;
 
-  const currentSec = document.getElementById('seconds');
-  currentSec.innerText = today.getSeconds();
+    const currentHour = document.getElementById('hours');
+    currentHour.innerText = today.getHours();
 
-  if (today.getSeconds() < 10) {
+    const currentMin = document.getElementById('minutes');
+    currentMin.innerText = today.getMinutes();
+
+    const currentSec = document.getElementById('seconds');
+    currentSec.innerText = today.getSeconds();
+
+    if (today.getSeconds() < 10) {
     currentSec.innerText = '0' + today.getSeconds();
-  }
+    }
 
-  if (today.getMinutes() < 10) {
+    if (today.getMinutes() < 10) {
     currentMin.innerText = '0' + today.getMinutes();
-  }
+    }
 
-  if (today.getHours() < 10) {
+    if (today.getHours() < 10) {
     currentHour.innerText = '0' + today.getHours();
-  }  
+    }  
 
   
 }
 updateClock();
 setInterval(updateClock, 1000);
+
+})();
+
 
 
