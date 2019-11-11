@@ -26,12 +26,12 @@
     "Sunday"
   ];
 
-  let military = true;
+  let isMilitary = true;
 
   const toggleAmPm = document.getElementById("btn");
   toggleAmPm.addEventListener("click", function() {
-    military = !military;
-    if (military) {
+    isMilitary = !isMilitary;
+    if (isMilitary) {
       amPm.innerText = "";
     }
     //console.log(military);
@@ -74,11 +74,11 @@
   }
 
   function formatHours(hours) {
-    if (!military && hours > 12) {
+    if (!isMilitary && hours > 12) {
       amPm.innerText = "PM";
       return hours - 12;
     }
-    if (!military && hours < 10) {
+    if (!isMilitary && hours < 10) {
       amPm.innerText = "AM";
       return "0" + hours;
     }
